@@ -17,8 +17,8 @@ EXPOSE 16669
 VOLUME ["/root/.znc"]
 
 RUN chgrp -R 0 "/root/.znc" && chmod -R g+rwX "/root/.znc"
-RUN git clone https://github.com/jreese/znc-push.git /root/.znc/znc-push; \
-    pushd /root/.znc/znc-push; \
+RUN git clone https://github.com/jreese/znc-push.git /tmp/znc-push; \
+    pushd /tmp/znc-push; \
     make curl=yes; \
     make install; \
     popd
