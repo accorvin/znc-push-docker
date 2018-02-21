@@ -17,9 +17,9 @@ VOLUME ["/znc"]
 
 RUN chgrp -R 0 "/znc" && chmod -R g+rwX "/znc"
 RUN git clone https://github.com/jreese/znc-push.git /znc/znc-push; \
-    pushd /znc/znc-push;
-    make curl=yes;
-    make install;
+    pushd /znc/znc-push; \
+    make curl=yes; \
+    make install; \
     popd
 
 ADD "run.sh" "/bin/"
