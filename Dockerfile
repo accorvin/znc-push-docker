@@ -15,7 +15,6 @@ WORKDIR /root/.znc/
 # EXPOSE "$PARAM_HTTP_PORT"
 
 EXPOSE 16669
-VOLUME ["/root/.znc"]
 
 RUN chgrp -R 0 "/root/.znc" && chmod -R g+rwX "/root/.znc"
 RUN git clone https://github.com/jreese/znc-push.git /tmp/znc-push; \
@@ -26,5 +25,4 @@ RUN git clone https://github.com/jreese/znc-push.git /tmp/znc-push; \
 
 ADD "run.sh" "/bin/"
 ADD "$ZNC_DEFAULT_CONFIG" "/etc/"
-USER 1001
 CMD ["/bin/run.sh"]
