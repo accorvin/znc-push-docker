@@ -23,4 +23,5 @@ if ! [ -e "$PARAM_WDIR/znc.pem" ]; then
   'znc' '--datadir' "$PARAM_WDIR" '--makepem'
 fi
 
+killall znc
 exec 'znc' '--foreground' '--datadir' "$PARAM_WDIR"
