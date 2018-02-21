@@ -6,7 +6,8 @@ ENV PARAM_HTTP_PORT="16669"
 ENV ZNC_DEFAULT_CONFIG="znc.conf-default"
 
 RUN yum install -y znc znc-devel \
-    libcurl-devel git gcc-c++ redhat-rpm-config; \
+    libcurl-devel git gcc-c++ redhat-rpm-config \
+    psmisc; \
     yum clean all
 
 WORKDIR /root/.znc/
