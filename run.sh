@@ -11,6 +11,11 @@ env
 # Interactive program require valid input. Which is absent in Openshift.
 exec < /dev/zero
 
+# Temporary fix for broken config
+if [ -e "$PARAM_WDIR/configs/znc.conf" ]; then
+    rm "$PARAM_WDIR/configs/znc.conf"
+fi
+
 # Default configuration
 if ! [ -e "$PARAM_WDIR/configs/znc.conf" ]; then
   echo "Use default ZNC configuraion. Consider to change default password."
